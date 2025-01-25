@@ -1,0 +1,19 @@
+deployment:
+  name: .Chart.Name
+  labels: debug
+
+  spec:
+    replicas: 1
+
+image:
+  repository: ubuntu
+  tag: "24.04"
+
+command:
+  - "/bin/sh"
+  - "-c"
+  - "while true; do sleep 30; done"
+
+service:
+  port: 80
+  type: ClusterIP

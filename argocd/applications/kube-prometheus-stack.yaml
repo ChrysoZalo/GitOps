@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: https://worawutchan.github.io/helm-charts
+  targetRevision: 12.8.0
+  helm:
+    parameters:
+      - name: grafana.adminPassword
+        value: admin
+  chart: kube-prometheus-stack
+destination:
+  server: https://kubernetes.default.svc
+  namespace: monitor
+syncPolicy:
+  syncOptions:
+    - CreateNamespace=true
